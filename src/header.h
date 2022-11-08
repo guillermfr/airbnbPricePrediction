@@ -3,5 +3,6 @@
 
 #include "includes.h"
 #include "defines.h"
+#include "structures.h"
 
 #endif
