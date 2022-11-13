@@ -7,6 +7,7 @@
 typedef struct logement logement;
 struct logement
 {
+    float number;
     float accommodates;
     float bedrooms;
     float bathrooms;
