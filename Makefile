@@ -58,7 +58,6 @@ give:
 clean:
 	$(RM) $(BINDIR)/* || echo Rien à supprimer dans bin
 	$(RM) $(OBJ)/* || echo Rien à supprimer dans obj
-	$(RM) $(DATA)/* || echo Rien à supprimer dans dat
 	$(RM) $(nameArchive) || echo Rien a supprimer dans save
 
 dox:
