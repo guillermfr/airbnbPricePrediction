@@ -9,7 +9,11 @@ void displayElement(int index, logement element) {
     printf("price : %f, ", element.price);
     printf("minNights : %f, ", element.minimum_nights);
     printf("maxNights : %f, ", element.maximum_nights);
-    printf("nbReviews : %f", element.number_of_reviews);
+    printf("nbReviews : %f, ", element.number_of_reviews);
+    printf("distArray : |");
+    for(int j = 0; j<TAILLETABDISTANCE; j++) {
+        printf(" %f |", element.tabDistance[j]);
+    }
     printf("\n");
 }
 

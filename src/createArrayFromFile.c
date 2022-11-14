@@ -21,6 +21,12 @@ int numberLines() {
     return nbLigne-1;
 }
 
+void initTabDistance(float tab[TAILLETABDISTANCE]) {
+    for(int i = 0; i<TAILLETABDISTANCE; i++) {
+        tab[i] = -1;
+    }
+}
+
 // demander au prof c'est quoi le mieux entre retourner le tableau 
 logement* createArray(int* tailleTab) {
     *tailleTab = numberLines();
@@ -79,6 +85,8 @@ logement* createArray(int* tailleTab) {
 
             strToken = strsep(bp, ",");
             tableau[numLigne].number_of_reviews = strtof(strToken, NULL);
+
+            initTabDistance(tableau[numLigne].tabDistance);
 
             numLigne++;
         }

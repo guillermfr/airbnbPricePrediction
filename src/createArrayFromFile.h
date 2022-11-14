@@ -6,6 +6,7 @@
 #include "structures.h"
 
 int numberLines();
+void initTabDistance(float tab[TAILLETABDISTANCE]);
 logement* createArray(int* tailleTab);
 
 #endif
