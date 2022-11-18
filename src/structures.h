@@ -16,7 +16,7 @@ struct logement
     float minimum_nights;
     float maximum_nights;
     float number_of_reviews;
-    float tabDistance[TAILLETABDISTANCE];
+    float distance;
 };
 
 #endif
