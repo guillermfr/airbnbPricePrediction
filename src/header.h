@@ -8,5 +8,6 @@
 #include "createArrayFromFile.h"
 #include "displayArray.h"
 #include "userInput.h"
+#include "distance.h"
 
 #endif
