@@ -7,5 +7,6 @@
 
 #include "createArrayFromFile.h"
 #include "displayArray.h"
+#include "userInput.h"
 
 #endif
