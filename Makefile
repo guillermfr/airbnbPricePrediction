@@ -29,19 +29,14 @@ nameArchive=guillerm_francois
 #programme du make
 all:$(BIN)
 
-.PHONY: clean dox
-
 $(BIN): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(OBJS) -o $@ -lm
 
 $(OBJ)/%.o: $(SRC)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -lm
 
 .PHONY: clean save restore give dox math
 
-math:
-	$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS) -lm
-	$(CC) $(CFLAGS) $(OBJS) -o $(BIN) -lm
 save:
 	@$(CP) $(SRCS) $(HEADS) $(SAVE)
 	@echo Fichiers sauvegarde.
