@@ -42,7 +42,7 @@ void distance(int nbAttributs, logement* tableau, int tailleTableau, logement lo
                 break;
             }
         }
-        tableau[i].distance = sqrt(somme);
+        tableau[i].distance = sqrtf(somme);
     }
 }
   
