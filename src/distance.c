@@ -29,15 +29,12 @@ void distance(int nbAttributs, logement* tableau, int tailleTableau, logement lo
                 somme += (logementATester.beds-tableau[i].beds)*(logementATester.beds-tableau[i].beds);
                 break;
             case 5:
-                somme += (logementATester.price-tableau[i].price)*(logementATester.price-tableau[i].price);
-                break;
-            case 6:
                 somme += (logementATester.minimum_nights-tableau[i].minimum_nights)*(logementATester.minimum_nights-tableau[i].minimum_nights);
                 break;
-            case 7:
+            case 6:
                 somme += (logementATester.maximum_nights-tableau[i].maximum_nights)*(logementATester.maximum_nights-tableau[i].maximum_nights);
                 break;
-            case 8:
+            case 7:
                 somme += (logementATester.number_of_reviews-tableau[i].number_of_reviews)*(logementATester.number_of_reviews-tableau[i].number_of_reviews);
                 break;
             default:
@@ -47,8 +44,5 @@ void distance(int nbAttributs, logement* tableau, int tailleTableau, logement lo
         }
         tableau[i].distance = sqrt(somme);
     }
-
-
-
 }
   
