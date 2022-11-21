@@ -5,6 +5,8 @@
 #include "defines.h"
 #include "structures.h"
 
-void distance(int nbAttributs, logement* tableau, int tailleTableau, logement logementATester);
+#include "userInput.h"
+
+void distance(logement* tableau, int tailleTableau, logement logementATester);
 
 #endif

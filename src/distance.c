@@ -1,18 +1,27 @@
 #include "distance.h"
 
-void distance(int nbAttributs, logement* tableau, int tailleTableau, logement logementATester)
+void distance(logement* tableau, int tailleTableau, logement logementATester)
 {
+    printf("Entrez le nombre d'attributs à comparer : \n");
+    int nbAttributs = saisieEntier1to7();
+
     int* tabAttributs = (int*) malloc(nbAttributs*sizeof(int));
+
+    printf("Indiquer les éléments à comparer:\n");
     for(int i=0; i<nbAttributs; i++)
     {
-        printf("Indiquer les éléments à comparer:\n");
-        scanf("%d",tabAttributs[i]);
+        tabAttributs[i] = saisieEntier1to7();
     }
+
+    for(int i = 0; i<nbAttributs; i++) {
+        printf("%d : %d\n", i, tabAttributs[i]);
+    }
+
     float somme;
     for (int i=0; i<tailleTableau; i++)
     {
         somme = 0;
-        for (int j; j<nbAttributs; j++)
+        for (int j = 0; j<nbAttributs; j++)
         {
             switch (tabAttributs[j])
             {
