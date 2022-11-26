@@ -38,7 +38,7 @@ int saisieEntier(char nomAttribut[]) {
 
     do {
         erreur = 0;
-        printf("Veuillez saisir la valeur de l'attribut \"%s\" : ", nomAttribut);        
+        if(nomAttribut != NULL) printf("Veuillez saisir la valeur de l'attribut \"%s\" : ", nomAttribut);        
         fgets(numChar, 10, stdin);
 
         // printf("chaine : %s, taille : %ld\n", numChar, strlen(numChar));
