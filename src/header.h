@@ -9,5 +9,6 @@
 #include "displayArray.h"
 #include "userInput.h"
 #include "distance.h"
+#include "triFusion.h"
 
 #endif
