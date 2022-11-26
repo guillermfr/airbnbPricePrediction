@@ -5,8 +5,8 @@
 #include "defines.h"
 #include "structures.h"
 
-#include "userInput.h"
-
-void distance(logement* tableau, int tailleTableau, logement logementATester);
+int* creationTabAttributs(int nbAttributs);
+void distance(int nbAttributs, logement* tableau, int tailleTableau, logement logementATester);
+float somme(int nbAttributs,logement logementI,logement logementATester,int* tabAttributs);
 
 #endif

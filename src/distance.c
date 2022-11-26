@@ -1,57 +1,62 @@
 #include "distance.h"
 
-void distance(logement* tableau, int tailleTableau, logement logementATester)
+int* creationTabAttributs(int nbAttributs)
 {
-    printf("Entrez le nombre d'attributs à comparer : \n");
-    int nbAttributs = saisieEntier1to7();
-
     int* tabAttributs = (int*) malloc(nbAttributs*sizeof(int));
-
-    printf("Indiquer les éléments à comparer:\n");
     for(int i=0; i<nbAttributs; i++)
     {
-        tabAttributs[i] = saisieEntier1to7();
+        printf("Indiquer les éléments à comparer:\n");
+        scanf("%d",tabAttributs[i]);
     }
+    return tabAttributs;
+}
 
-    for(int i = 0; i<nbAttributs; i++) {
-        printf("%d : %d\n", i, tabAttributs[i]);
-    }
-
-    float somme;
-    for (int i=0; i<tailleTableau; i++)
-    {
-        somme = 0;
-        for (int j = 0; j<nbAttributs; j++)
+float somme(int nbAttributs,logement logementI,logement logementATester,int* tabAttributs)
+{
+        float sum = 0;
+        for (int j; j<nbAttributs; j++)
         {
             switch (tabAttributs[j])
             {
-            case 1:
-                somme += (logementATester.accommodates-tableau[i].accommodates)*(logementATester.accommodates-tableau[i].accommodates);
-                break;
-            case 2:
-                somme += (logementATester.bedrooms-tableau[i].bedrooms)*(logementATester.bedrooms-tableau[i].bedrooms);
-                break;
-            case 3:
-                somme += (logementATester.bathrooms-tableau[i].bathrooms)*(logementATester.bathrooms-tableau[i].bathrooms);
-                break;
-            case 4:
-                somme += (logementATester.beds-tableau[i].beds)*(logementATester.beds-tableau[i].beds);
-                break;
-            case 5:
-                somme += (logementATester.minimum_nights-tableau[i].minimum_nights)*(logementATester.minimum_nights-tableau[i].minimum_nights);
-                break;
-            case 6:
-                somme += (logementATester.maximum_nights-tableau[i].maximum_nights)*(logementATester.maximum_nights-tableau[i].maximum_nights);
-                break;
-            case 7:
-                somme += (logementATester.number_of_reviews-tableau[i].number_of_reviews)*(logementATester.number_of_reviews-tableau[i].number_of_reviews);
-                break;
-            default:
-                printf("Erreur");
-                break;
+                case 1:
+                    sum += (logementATester.accommodates-logementI.accommodates)*(logementATester.accommodates-logementI.accommodates);
+                    break;
+                case 2:
+                    sum += (logementATester.bedrooms-logementI.bedrooms)*(logementATester.bedrooms-logementI.bedrooms);
+                    break;
+                case 3:
+                    sum  += (logementATester.bathrooms-logementI.bathrooms)*(logementATester.bathrooms-logementI.bathrooms);
+                    break;
+                case 4:
+                    sum  += (logementATester.beds-logementI.beds)*(logementATester.beds-logementI.beds);
+                    break;
+                case 5:
+                    sum += (logementATester.minimum_nights-logementI.minimum_nights)*(logementATester.minimum_nights-logementI.minimum_nights);
+                    break;
+                case 6:
+                    sum += (logementATester.maximum_nights-logementI.maximum_nights)*(logementATester.maximum_nights-logementI.maximum_nights);
+                    break;
+                case 7:
+                    sum += (logementATester.number_of_reviews-logementI.number_of_reviews)*(logementATester.number_of_reviews-logementI.number_of_reviews);
+                    break;
+                default:
+                    printf("Erreur");
+                    break;
             }
         }
-        tableau[i].distance = sqrtf(somme);
+        return sum;
+}
+
+
+
+void distance(int nbAttributs,logement* tableau, int tailleTableau, logement logementATester)
+{
+    int* tabAttributs = creationTabAttributs(nbAttributs);
+    for (int i=0; i<tailleTableau; i++)
+    {
+        logement logementI = tableau[i];
+        float sum = somme(nbAttributs, logementI, logementATester, tabAttributs);
+        tableau[i].distance = sqrtf(sum);
     }
 }
   
