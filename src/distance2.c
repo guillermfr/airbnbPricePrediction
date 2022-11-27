@@ -1,4 +1,4 @@
-#include "distance.h"
+#include "distance2.h"
 
 int* creationTabAttributs(int nbAttributs)
 {
