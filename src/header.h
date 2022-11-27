@@ -11,5 +11,6 @@
 #include "distance.h"
 #include "triFusion.h"
 #include "priceCalculation.h"
+#include "inputAccommodationToCompare.h"
 
 #endif
