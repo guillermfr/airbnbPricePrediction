@@ -1,7 +1,8 @@
 #include "inputAccommodationToCompare.h"
 
 /*
-    Read informations about the accommodation to compare.
+    Lit les informations sur le logement à comparer
+    @return Logement contenant les informations entrées
 */
 logement inputAccomodation() {
     logement accommodationToCompare;
