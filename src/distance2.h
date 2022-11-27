@@ -1,5 +1,5 @@
-#ifndef DISTANCE_H
-#define DISTANCE_H
+#ifndef DISTANCE2_H
+#define DISTANCE2_H
 
 #include "includes.h"
 #include "defines.h"
