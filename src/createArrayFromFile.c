@@ -81,6 +81,8 @@ logement* createArray(int* tailleTab) {
 
             tableau[numLigne].distance = -1;
 
+            for(int i = 0; i<3; i++) tableau[numLigne].tabDistances[i] = -1;
+
             numLigne++;
         }
     }
