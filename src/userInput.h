@@ -6,7 +6,7 @@
 #include "structures.h"
 
 void viderBuffer();
-int saisieEntier1to7();
+int saisieEntierXtoY(int x, int y);
 int saisieEntier(char nomAttribut[]);
 
 #endif
