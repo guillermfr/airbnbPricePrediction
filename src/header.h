@@ -12,5 +12,6 @@
 #include "triFusion.h"
 #include "priceCalculation.h"
 #include "inputAccommodationToCompare.h"
+#include "randomizeArray.h"
 
 #endif
