@@ -20,6 +20,7 @@ void display(logement* tableau, int index, int tailleTab) {
             displayElement(i, tableau[i]);
         }
     } else {
+        // printf("index : %d\n", index);
         displayElement(index, tableau[index]);
     }
 }
