@@ -1,59 +1,73 @@
-#include "distance2.h"
-/*Le programme demande à l'utlisateur de rentrer un entier correspondant à l'attribut qu'il souhaite comparé pour calculer la distance, 
-il calcule ensuite cette distance et la rentre dans le champ distance de chaque logement du tableau*/
+#include "distance.h"
 
-int attributComp()
-/*Demande de l'attribut à comparer*/
+/*
+    Créer un tableau contenant les indices des attributs que l'utilisateur veut utiliser dans le calcul de distance
+    @return Tableau contenant ces indices
+*/
+int* creationTabAttributs(int nbAttributs)
 {
-    int attributComp;
-    printf("Indiquer l'élément à comparer:\n");
-    scanf("%d",&attributComp);
-    return attributComp;
-}
-
-float distance_aux(logement logementI,logement logementATester,int attribut)
-/*Calcul de la distance*/
-{
-    float dist = 0;
-    switch (attribut)
+    int* tabAttributs = (int*) malloc(nbAttributs*sizeof(int));
+    printf("Indiquer les éléments à comparer:\n");
+    for(int i=0; i<nbAttributs; i++)
     {
-            case 1:
-                dist += (logementATester.accommodates-logementI.accommodates)*(logementATester.accommodates-logementI.accommodates);
-                break;
-            case 2:
-                dist += (logementATester.bedrooms-logementI.bedrooms)*(logementATester.bedrooms-logementI.bedrooms);
-                break;
-            case 3:
-                dist += (logementATester.bathrooms-logementI.bathrooms)*(logementATester.bathrooms-logementI.bathrooms);
-                break;
-            case 4:
-                dist += (logementATester.beds-logementI.beds)*(logementATester.beds-logementI.beds);
-                break;
-            case 5:
-                dist += (logementATester.minimum_nights-logementI.minimum_nights)*(logementATester.minimum_nights-logementI.minimum_nights);
-                break;
-            case 6:
-                dist += (logementATester.maximum_nights-logementI.maximum_nights)*(logementATester.maximum_nights-logementI.maximum_nights);
-                break;
-            case 7:
-                dist += (logementATester.number_of_reviews-logementI.number_of_reviews)*(logementATester.number_of_reviews-logementI.number_of_reviews);
-                break;
-            default:
-                printf("Erreur");
-                break;
-        }
-        return sqrt(dist);
+        tabAttributs[i] = saisieEntier(1,7);
+    }
+    return tabAttributs;
 }
 
+/*
+    Fait le calcul de distance entre le logement de l'utilisateur et un logement du tableau de données
+    @return Valeur de la distance
+*/
 
-void attribution_distance(logement* tableau, int tailleTableau, logement logementATester)
-/*Attribution des distances aux différents logements*/
-{   
-    int attribut = (int*) attributComp();
+float distance_aux(int nbAttributs,logement logementI,logement logementATester,int* tabAttributs)
+{
+        float sum = 0;
+        for (int j; j<nbAttributs; j++)
+        {
+            switch (tabAttributs[j])
+            {
+                case 1:
+                    sum += (logementATester.accommodates-logementI.accommodates)*(logementATester.accommodates-logementI.accommodates);
+                    break;
+                case 2:
+                    sum += (logementATester.bedrooms-logementI.bedrooms)*(logementATester.bedrooms-logementI.bedrooms);
+                    break;
+                case 3:
+                    sum += (logementATester.bathrooms-logementI.bathrooms)*(logementATester.bathrooms-logementI.bathrooms);
+                    break;
+                case 4:
+                    sum += (logementATester.beds-logementI.beds)*(logementATester.beds-logementI.beds);
+                    break;
+                case 5:
+                    sum += (logementATester.minimum_nights-logementI.minimum_nights)*(logementATester.minimum_nights-logementI.minimum_nights);
+                    break;
+                case 6:
+                    sum += (logementATester.maximum_nights-logementI.maximum_nights)*(logementATester.maximum_nights-logementI.maximum_nights);
+                    break;
+                case 7:
+                    sum += (logementATester.number_of_reviews-logementI.number_of_reviews)*(logementATester.number_of_reviews-logementI.number_of_reviews);
+                    break;
+                default:
+                    printf("Erreur");
+                    exit(0);
+                    break;
+            }
+        }
+        return sqrtf(sum);
+}
+
+/*
+    Attribut à chaque logement du tableau la distance entre ce logement et celui de l'utilisateur
+*/
+
+void distance(int nbAttributs,logement* tableau, int tailleTableau, logement logementATester)
+{
+    int* tabAttributs = creationTabAttributs(nbAttributs);
     for (int i=0; i<tailleTableau; i++)
     {
         logement logementI = tableau[i];
-        tableau[i].distance = distance_aux(logementI,logementATester,attribut);
+        logementI.distance = distance_aux(nbAttributs, logementI, logementATester, tabAttributs);
     }
 }
   
