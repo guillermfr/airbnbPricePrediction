@@ -16,7 +16,7 @@ int* creationTabAttributs(int nbAttributs)
 }
 
 /*
-    Fait le calcul de distance entre le logement de l'utilisateur et un logement du tableau de données
+    Fait le calcul de distance quadratique entre le logement de l'utilisateur et un logement du tableau de données
     @return Valeur de la distance
 */
 
