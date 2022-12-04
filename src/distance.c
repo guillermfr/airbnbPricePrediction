@@ -58,7 +58,7 @@ float distance_aux(int nbAttributs,logement logementI,logement logementATester,i
 }
 
 /*
-    Attribut à chaque logement du tableau la distance entre ce logement et celui de l'utilisateur
+    Attribue à chaque logement du tableau la distance entre ce logement et celui de l'utilisateur
 */
 
 void distance(int nbAttributs,logement* tableau, int tailleTableau, logement logementATester)
