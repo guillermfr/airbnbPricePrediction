@@ -58,9 +58,6 @@ logement inputAccomodation() {
     accommodationToCompare.price = -1;
     accommodationToCompare.number_of_reviews = -1;
     accommodationToCompare.distance = -1;
-    for(int i = 0; i<3; i++) {
-        accommodationToCompare.tabDistances[i] = -1;
-    }
 
     return accommodationToCompare;
 }
