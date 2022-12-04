@@ -28,8 +28,9 @@ logement* createArray(int* tailleTab) {
     FILE* file = fopen(FILE_NAME, "r");
 
     if(file == NULL) {
-        printf("Error handling\n");
-    } else printf("File opened correctly !\n");
+        printf("Erreur lors de l'ouverture du fichier, fin du programme.\n");
+        exit(EXIT_FAILURE);
+    }
 
     char* line;
     size_t len = 0;
@@ -80,8 +81,6 @@ logement* createArray(int* tailleTab) {
             tableau[numLigne].number_of_reviews = strtof(strToken, NULL);
 
             tableau[numLigne].distance = -1;
-
-            for(int i = 0; i<3; i++) tableau[numLigne].tabDistances[i] = -1;
 
             numLigne++;
         }

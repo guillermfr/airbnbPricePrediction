@@ -16,8 +16,6 @@ logement inputAccomodation() {
         accommodationToCompare.accommodates = saisieEntier(0, 0);
     }
 
-    printf("\e[1;1H\e[2J");
-
     printf("Nombre de chambres : ");
     accommodationToCompare.bedrooms = saisieEntier(0, 0);
     while(accommodationToCompare.bedrooms < 1) {
