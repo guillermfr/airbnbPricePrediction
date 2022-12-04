@@ -1,6 +1,5 @@
 #include "userInput.h"
 
-// REVOIR LES PRINTF ICI
 /*
     Vide le buffer
 */
@@ -11,73 +10,40 @@ void viderBuffer() {
     }
 }
 
-// a revoir
-// à utiliser seulement pour les nombres à 1 chiffre
 /*
-    Permet d'entrer un nombre entier composé d'un seul chiffre, sur un intervalle donné
+    Permet d'entrer un entier, avec la possiblité de donner un intervalle dans lequel l'entier doit être contenu
     @param x Première borne de l'intervalle
     @param y Seconde borne de l'intervalle
-    @return Entier entré
+    @returns Retourne l'entier saisie, de type int. Il y a 5 types d'erreurs possibles : -1 si certains caractères entrés ne sont pas des entiers, 
+    -2 si la chaîne entrée est trop longue, -3 si la chaîne entrée est vide, -4 si l'entier entrée est en dehors des bornes et -5 si la première 
+    borne est plus grande que la seconde.
 */
-int saisieEntierXtoY(int x, int y) {
+int saisieEntier(int x, int y) {
+    char numChar[10];
+    fgets(numChar, 10, stdin);
+    size_t length = strlen(numChar);
+    int i;
+    int retour;
 
-    if(!(x>=0 && y>=0 && x<=9 && y<=9)) {
-        return -1;
+    if(x > y) return -5;
+
+    if(numChar[length-1] != '\n') {
+        viderBuffer();
+        return -2;
     }
 
-    char X = x + '0';
-    char Y = y + '0';
-
-    char numChar[3];
-    int erreur;
-
-    do {
-        erreur = 0;
-        printf("Veuillez saisir un entier : ");        
-        fgets(numChar, 3, stdin);
-        if(!((numChar[0]>=X) && (numChar[0]<=Y)) || numChar[1] != '\n') {
-            if(numChar[0] == '\n') erreur = 2;
-            else if(numChar[1] != '\n') erreur = 1;
-            else erreur = 2;
+    for(i = 0; i<length-1; i++) {
+        if(!isdigit(numChar[i])) {
+            return -1;
         }
-        if(erreur != 0) {
-            printf("La valeur entrée n'est pas un entier correct !\n");
-            if(erreur == 1) viderBuffer();
-        }
-    } while(erreur != 0);
-    return(atoi(numChar));
-}
+    }
+    if(i == 0) return -3;
 
-// Ajouter une gestion erreur
-/*
-    Permet d'entrer un nombre entier
-    @param nomAttribut[] Nom de l'attribut demandé en entrée, si la valeur entrée est égale à NULL, il n'y aura pas de demande à l'utilisateur pour entrer le nombre
-    @return Entier entré
-*/
-int saisieEntier(char nomAttribut[]) {
-    char numChar[10];
-    int erreur;
+    retour = atoi(numChar);
 
-    do {
-        erreur = 0;
-        if(nomAttribut != NULL) printf("Veuillez saisir la valeur de l'attribut \"%s\" : ", nomAttribut);        
-        fgets(numChar, 10, stdin);
+    if(x != y) {
+        if(retour < x || retour > y) return -4;
+    }
 
-        for(int i = 0; i<strlen(numChar)-1; i++) {
-            if(!((numChar[i]>='0') && (numChar[i]<='9'))) {
-                erreur = 2;
-            }
-        }
-        if(numChar[strlen(numChar)-1] != '\n') {
-            if(getchar() != '\n') erreur = 1;
-        }
-        else if(numChar[0] == '\n') erreur = 2;
-
-        if(erreur != 0) {
-            printf("La valeur entrée n'est pas un entier correct !\n");
-            if(erreur == 1) viderBuffer();
-        }
-    } while(erreur != 0);
-
-    return(atoi(numChar));
+    return retour;
 }
