@@ -66,7 +66,7 @@ void distance(int nbAttributs,logement* tableau, int tailleTableau, logement log
     int* tabAttributs = creationTabAttributs(nbAttributs);
     for (int i=0; i<tailleTableau; i++)
     {
-        logementI.distance = distance_aux(nbAttributs, tableau[i], logementATester, tabAttributs);
+        tableau[i].distance = distance_aux(nbAttributs, tableau[i], logementATester, tabAttributs);
     }
 }
   
