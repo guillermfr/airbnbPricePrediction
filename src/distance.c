@@ -15,6 +15,7 @@ int verifDoublonTabAttributs(int* tabAttributs, int i) {
 
 /*
     Crée un tableau contenant les indices des attributs que l'utilisateur veut utiliser dans le calcul de distance
+    @param nbAttributs Nombre d'attributs que l'utilisateur souhaite utiliser pour le calcul de distance
     @return Tableau contenant les indices des attributs à comparer
 */
 int* creationTabAttributs(int nbAttributs)
