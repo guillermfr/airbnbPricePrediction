@@ -1,7 +1,7 @@
 #include "distance.h"
 
 /*
-    Créer un tableau contenant les indices des attributs que l'utilisateur veut utiliser dans le calcul de distance
+    Crée un tableau contenant les indices des attributs que l'utilisateur veut utiliser dans le calcul de distance
     @return Tableau contenant ces indices
 */
 int* creationTabAttributs(int nbAttributs)
