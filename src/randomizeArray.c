@@ -1,5 +1,10 @@
 #include "randomizeArray.h"
 
+/*
+    Mélange le tableau de logements
+    @param tableau Tableau des logements
+    @param tailleTab Taille du tableau
+*/
 void randomizeArray(logement* tableau, int tailleTab) {
     int j = 0;
 

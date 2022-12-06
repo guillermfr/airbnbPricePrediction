@@ -1,5 +1,14 @@
 #include "triFusion.h"
 
+/*
+
+    @param tab Tableau des logements
+    @param aux Tableau auxiliaire
+    @param tailleTab Taille du tableau
+    @param begin Indice de début
+    @param mid Indice du milieu, entre les 2 parties du tableau à rassembler
+    @param end Indice de fin
+*/
 void fusion(logement* tab, logement aux[], int tailleTab, int begin, int mid, int end) {
 
     int i;
@@ -29,6 +38,14 @@ void fusion(logement* tab, logement aux[], int tailleTab, int begin, int mid, in
     }
 }
 
+/*
+    Partitionne le tableau et appelle la fonction permettant de fusionner les partitions pour que le tableau devienne trié
+    @param tab Tableau des logements
+    @param aux Tableau auxiliaire
+    @param tailleTab Taille du tableau
+    @param begin Indice de début nécessaire pour la fusion
+    @param end Indice de fin nécessaire pour la fusion
+*/
 void triFusionAux(logement* tab, logement aux[], int tailleTab, int begin, int end) {
     if(begin<end) {
         int mid = (begin+end)/2;
@@ -38,12 +55,23 @@ void triFusionAux(logement* tab, logement aux[], int tailleTab, int begin, int e
     }
 }
 
+/*
+    Appel général du tri
+    @param tab Tableau des logements
+    @param tailleTab Taille du tableau
+*/
 void triFusion(logement* tab, int tailleTab) {
     logement aux[tailleTab];
 
     triFusionAux(tab, aux, tailleTab, 0, tailleTab-1);
 }
 
+/*
+    Vérifie si le tableau est bien trié par ordre croissant des distances
+    @param tab Tableau des logements
+    @param tailleTab Taille du tableau
+    @return 0 si le tableau est trié, sinon un entier supérieur à 0
+*/
 int verifTri(logement* tab, int tailleTab) {
     int verif = 0;
     for(int i = 0; i<tailleTab-1; i++) {

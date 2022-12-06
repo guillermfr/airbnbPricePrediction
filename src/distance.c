@@ -15,24 +15,28 @@ int verifDoublonTabAttributs(int* tabAttributs, int i) {
 
 /*
     Crée un tableau contenant les indices des attributs que l'utilisateur veut utiliser dans le calcul de distance
-    @param nbAttributs Nombre d'attributs que l'utilisateur souhaite utiliser pour le calcul de distance
     @return Tableau contenant les indices des attributs à comparer
 */
 int* creationTabAttributs(int nbAttributs)
 {
+
+    // On alloue de la mémoire pour le tableau d'attributs
     int* tabAttributs = (int*) malloc(nbAttributs*sizeof(int));
 
+    // Si le nombre d'attributs à comparer entré est égal à 6, on peut directement mettre tous les attributs dans le tableau
     if(nbAttributs == 6) {
         for(int i = 0; i<6; i++) {
             tabAttributs[i] = i+1;
         }
     } else {
+        // On demande à l'utilisateur les attributs à comparer
         for(int i=0; i<nbAttributs; i++) {
             CLEAR_CONSOLE
             AFFICHAGE_ATTRIBUTS_COMPARER
             printf("\nIndiquer les éléments à comparer :\n\n");
 
             printf("Attribut n°%d : ", i+1);
+            // L'utilisateur saisie les attributs, on vérifie à chaque fois si la valeur entrée est correcte et si elle n'a pas déjà été entrée
             tabAttributs[i] = saisieEntier(1,6);
             while(tabAttributs[i] < 1 || verifDoublonTabAttributs(tabAttributs, i)) {
                 printf("La valeur entrée n'est pas correcte, veuillez réessayer, attribut n°%d : ", i+1);
@@ -53,8 +57,8 @@ int* creationTabAttributs(int nbAttributs)
     @return Valeur de la distance
 */
 
-float distance_aux(int* tabAttributs, int nbAttributs, logement logementI, logement logementATester)
-{
+float distance_aux(int* tabAttributs, int nbAttributs, logement logementI, logement logementATester) {
+
     float sum = 0;
     for (int j; j<nbAttributs; j++)
     {
@@ -85,6 +89,7 @@ float distance_aux(int* tabAttributs, int nbAttributs, logement logementI, logem
         }
     }
     return sqrtf(sum);
+
 }
 
 /*
@@ -108,10 +113,11 @@ void distance(logement* tableau, int tailleTableau, logement logementATester)
 
     int* tabAttributs = creationTabAttributs(nbAttributs);
 
+    // On calcule la distance entre chaque logement avec le logement à comparer 
     for (int i=0; i<tailleTableau; i++)
     {
         tableau[i].distance = distance_aux(tabAttributs, nbAttributs, tableau[i], logementATester);
-        printf("%d. %f\n", i, tableau[i].distance);
+        printf("%d. %f\n", i, tableau[i].price);
     }
 
     CLEAR_CONSOLE
