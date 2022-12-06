@@ -5,6 +5,7 @@
 #include "defines.h"
 #include "structures.h"
 
+// Déclaration du prototype des fonctions
 void fusion(logement* tab, logement aux[], int tailleTab, int begin, int mid, int end);
 void triFusionAux(logement* tab, logement aux[], int tailleTab, int begin, int end);
 void triFusion(logement* tab, int tailleTab);

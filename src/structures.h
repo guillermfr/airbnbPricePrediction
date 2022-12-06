@@ -4,6 +4,7 @@
 #include "includes.h"
 #include "defines.h"
 
+// Déclaration de la structure logement
 typedef struct logement logement;
 struct logement
 {

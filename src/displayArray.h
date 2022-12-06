@@ -5,6 +5,7 @@
 #include "defines.h"
 #include "structures.h"
 
+// Déclaration du prototype des fonctions
 void displayElement(int index, logement element);
 void display(logement* tableau, int index, int tailleTab);
 

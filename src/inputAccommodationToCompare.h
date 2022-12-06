@@ -7,6 +7,7 @@
 
 #include "userInput.h"
 
+// Déclaration du prototype des fonctions
 logement inputAccomodation();
 
 #endif

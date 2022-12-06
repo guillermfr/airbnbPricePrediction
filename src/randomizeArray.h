@@ -5,6 +5,7 @@
 #include "defines.h"
 #include "structures.h"
 
+// Déclaration du prototype des fonctions
 void randomizeArray(logement* tableau, int tailleTab);
 
 #endif

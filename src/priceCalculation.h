@@ -7,6 +7,7 @@
 
 #include "userInput.h"
 
+// Déclaration du prototype des fonctions
 int inputNbLogementComp(int tailleTab);
 float priceCalculationAux(logement* tab, int nbLogementComp);
 float priceCalculation(logement* tab, int tailleTab);

@@ -5,6 +5,7 @@
 #include "defines.h"
 #include "structures.h"
 
+// Déclaration du prototype des fonctions
 void viderBuffer();
 int saisieEntier(int x, int y);
 

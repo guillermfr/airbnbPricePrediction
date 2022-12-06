@@ -7,6 +7,7 @@
 
 #include "userInput.h"
 
+// Déclaration du prototype des fonctions
 int verifDoublonTabAttributs(int* tabAttributs, int i);
 int* creationTabAttributs(int nbAttributs);
 void distance(logement* tableau, int tailleTableau, logement logementATester);

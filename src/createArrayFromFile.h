@@ -5,6 +5,7 @@
 #include "defines.h"
 #include "structures.h"
 
+// Déclaration du prototype des fonctions
 int numberLines();
 logement* createArray(int* tailleTab);
 
