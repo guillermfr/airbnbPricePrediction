@@ -4,20 +4,19 @@
 #include "includes.h"
 #include "defines.h"
 
-// Déclaration de la structure logement
-typedef struct logement logement;
-struct logement
-{
-    float number;
-    float accommodates;
-    float bedrooms;
-    float bathrooms;
-    float beds;
-    float price;
-    float minimum_nights;
-    float maximum_nights;
-    float number_of_reviews;
-    float distance;
+typedef struct processus processus;
+struct processus {
+    char nom[256];
+    int dureeExec;
+    int priorite;
 };
+
+typedef struct ordonnanceur ordonnanceur;
+struct ordonnanceur {
+    processus processus;
+    ordonnanceur* next;
+};
+
+typedef ordonnanceur* PtrOrdonnanceur;
 
 #endif
